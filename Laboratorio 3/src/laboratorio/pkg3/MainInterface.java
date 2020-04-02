@@ -28,38 +28,58 @@ public class MainInterface extends javax.swing.JFrame {
     private void initComponents() {
 
         ParkingButton = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        Button2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        ParkingButton.setText("Parqueadero");
+        ParkingButton.setText("TEATRO");
         ParkingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ParkingButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("jButton2");
+        Button2.setText("PARQUEADERO");
+        Button2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Button2MouseClicked(evt);
+            }
+        });
+        Button2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Button2ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Escoge una opcion: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(150, 150, 150)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(ParkingButton))
-                .addContainerGap(155, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Button2)
+                            .addComponent(ParkingButton))))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(74, 74, 74)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addComponent(ParkingButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addComponent(Button2)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pack();
@@ -68,6 +88,16 @@ public class MainInterface extends javax.swing.JFrame {
     private void ParkingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ParkingButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ParkingButtonActionPerformed
+
+    private void Button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Button2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Button2ActionPerformed
+
+    private void Button2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button2MouseClicked
+    ParkingParameters parking = new ParkingParameters();
+    parking.setVisible(true);
+    this.setVisible(false);// TODO add your handling code here:
+    }//GEN-LAST:event_Button2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -106,7 +136,8 @@ public class MainInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Button2;
     private javax.swing.JButton ParkingButton;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

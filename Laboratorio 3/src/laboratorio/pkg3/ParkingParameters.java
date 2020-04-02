@@ -7,7 +7,7 @@ package laboratorio.pkg3;
 
 /**
  *
- * @author User
+ * @author kjuan
  */
 public class ParkingParameters extends javax.swing.JFrame {
 
@@ -27,82 +27,107 @@ public class ParkingParameters extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
+        capacity = new javax.swing.ButtonGroup();
+        prices = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
+        defaultCapacity = new javax.swing.JRadioButton();
+        costomCapacity = new javax.swing.JRadioButton();
+        jLabel3 = new javax.swing.JLabel();
+        defaultPrices = new javax.swing.JRadioButton();
+        customPrices = new javax.swing.JRadioButton();
+        Buttonacept = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Capacidad del Parqueadero");
+        jLabel1.setText("Capacidad de parqueadero : ");
 
-        jLabel2.setText("Precios por minuto");
+        capacity.add(defaultCapacity);
+        defaultCapacity.setText("Por defecto");
 
-        jRadioButton1.setText("jRadioButton1");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        capacity.add(costomCapacity);
+        costomCapacity.setText("Personalizado");
+
+        jLabel3.setText("Precios : ");
+
+        prices.add(defaultPrices);
+        defaultPrices.setText("Por defecto");
+        defaultPrices.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                defaultPricesActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setText("jRadioButton2");
+        prices.add(customPrices);
+        customPrices.setText("Personalizado");
 
-        jRadioButton3.setText("jRadioButton3");
-
-        jRadioButton4.setText("jRadioButton4");
+        Buttonacept.setText("Aceptar");
+        Buttonacept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonaceptActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton1))
-                .addGap(151, 151, 151))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(34, 34, 34)
+                        .addComponent(Buttonacept))
+                    .addComponent(jLabel3))
+                .addGap(0, 22, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(178, 178, 178)
+                        .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)))
+                            .addComponent(costomCapacity)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(defaultCapacity)
+                                .addGap(14, 14, 14))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(125, 125, 125)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jRadioButton4)
-                            .addComponent(jRadioButton3))))
-                .addContainerGap(90, Short.MAX_VALUE))
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(customPrices)
+                            .addComponent(defaultPrices))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel1)
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(Buttonacept))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(defaultCapacity)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton2)
-                .addGap(44, 44, 44)
-                .addComponent(jLabel2)
+                .addComponent(costomCapacity)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton4)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(defaultPrices)
+                .addGap(18, 18, 18)
+                .addComponent(customPrices)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void ButtonaceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonaceptActionPerformed
+    ParkingInterface openParking = new ParkingInterface();
+    openParking.setVisible(true);
+    this.setVisible(false);// TODO add your handling code here:
+    }//GEN-LAST:event_ButtonaceptActionPerformed
+
+    private void defaultPricesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defaultPricesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_defaultPricesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,13 +165,14 @@ public class ParkingParameters extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JButton Buttonacept;
+    private javax.swing.ButtonGroup capacity;
+    private javax.swing.JRadioButton costomCapacity;
+    private javax.swing.JRadioButton customPrices;
+    private javax.swing.JRadioButton defaultCapacity;
+    private javax.swing.JRadioButton defaultPrices;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.ButtonGroup prices;
     // End of variables declaration//GEN-END:variables
 }

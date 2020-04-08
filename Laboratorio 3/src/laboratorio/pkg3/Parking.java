@@ -15,4 +15,8 @@ public class Parking {
         this.MotorcyclePrice=MotorcyclePrice;
         this.BikePrice=BikePrice;
     }
+
+    Parking() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

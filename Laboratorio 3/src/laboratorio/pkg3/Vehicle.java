@@ -1,6 +1,5 @@
 package laboratorio.pkg3;
 import java.time.LocalDateTime;
-import java.util.Scanner;
 
 
 public class Vehicle {

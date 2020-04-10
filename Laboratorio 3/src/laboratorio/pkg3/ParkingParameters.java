@@ -6,6 +6,7 @@
 package laboratorio.pkg3;
 
 import javax.swing.ButtonModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,6 +19,12 @@ public class ParkingParameters extends javax.swing.JFrame {
      */
     public ParkingParameters() {
         initComponents();
+        CarCapacity.setEnabled(false);
+        MotorcycleCapacity.setEnabled(false);
+        BikeCapacity.setEnabled(false);
+        CarPrice.setEnabled(false);
+        MotorcyclePrice.setEnabled(false);
+        BikePrice.setEnabled(false);
     }
 
     /**
@@ -230,24 +237,28 @@ public class ParkingParameters extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonaceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonaceptActionPerformed
-    ParkingInterface openParking = new ParkingInterface();
-    openParking.setVisible(true);
-    this.setVisible(false);
     int CVector[]=new int[3];
     int PVector[]=new int[3];
-    Parking Parking1= new Parking();
+    boolean Check1=false, Check2=false;
     switch(c){
         case 1:
             CVector[0]=12;
             CVector[1]=8;
             CVector[2]=6;
+            Check1=true;
             break;
         case 2:
+            if((CarCapacity.getText().equals(""))||(MotorcycleCapacity.getText().equals(""))||(BikeCapacity.getText().equals(""))){
+                Check1=false;
+                break;
+            }
             CVector[0]=Integer.parseInt(CarCapacity.getText());
             CVector[1]=Integer.parseInt(MotorcycleCapacity.getText());
             CVector[2]=Integer.parseInt(BikeCapacity.getText());
+            Check1=true;
             break;
         default:
+            Check1=false;
             break;
     }
     switch(p){
@@ -255,15 +266,31 @@ public class ParkingParameters extends javax.swing.JFrame {
             PVector[0]=75;
             PVector[1]=20;
             PVector[2]=10;
+            Check2=true;
             break;
         case 2:
+                        if((CarPrice.getText().equals(""))||(MotorcyclePrice.getText().equals(""))||(BikePrice.getText().equals(""))){
+                Check1=false;
+                break;
+            }
             PVector[0]=Integer.parseInt(CarPrice.getText());
             PVector[1]=Integer.parseInt(MotorcyclePrice.getText());
             PVector[2]=Integer.parseInt(BikePrice.getText());
+            Check2=true;
             break;
         default:
+            Check2=false;
             break;
     }
+    if((Check1==true) && (Check2=true)){
+        ParkingInterface openParking = new ParkingInterface();
+        openParking.setVisible(true);
+        this.setVisible(false);
+        Parking Parking1;
+        Parking1 = new Parking(CVector[0],CVector[1],CVector[2],PVector[0],PVector[1],PVector[2]);
+    }
+    else
+        JOptionPane.showMessageDialog(null, "Escoja una opción y/o rellene todas las casillas");
     }//GEN-LAST:event_ButtonaceptActionPerformed
 
     private void defaultPricesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defaultPricesActionPerformed
@@ -272,18 +299,30 @@ public class ParkingParameters extends javax.swing.JFrame {
 
     private void defaultCapacityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_defaultCapacityMouseClicked
         c=1;
+        CarCapacity.setEnabled(false);
+        MotorcycleCapacity.setEnabled(false);
+        BikeCapacity.setEnabled(false);
     }//GEN-LAST:event_defaultCapacityMouseClicked
 
     private void costomCapacityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_costomCapacityMouseClicked
        c=2;
+       CarCapacity.setEnabled(true);
+       MotorcycleCapacity.setEnabled(true);
+       BikeCapacity.setEnabled(true);
     }//GEN-LAST:event_costomCapacityMouseClicked
 
     private void defaultPricesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_defaultPricesMouseClicked
         p=1;
+        CarPrice.setEnabled(false);
+        MotorcyclePrice.setEnabled(false);
+        BikePrice.setEnabled(false);
     }//GEN-LAST:event_defaultPricesMouseClicked
 
     private void customPricesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customPricesMouseClicked
         p=2;
+        CarPrice.setEnabled(true);
+        MotorcyclePrice.setEnabled(true);
+        BikePrice.setEnabled(true);
     }//GEN-LAST:event_customPricesMouseClicked
 
     private void CarCapacityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CarCapacityActionPerformed

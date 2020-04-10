@@ -32,7 +32,7 @@ public class VehicleInside extends javax.swing.JFrame {
         vetype = new javax.swing.JComboBox<>();
         Buttonin = new javax.swing.JButton();
         txt1 = new javax.swing.JLabel();
-        plate = new javax.swing.JTextField();
+        PlateField = new javax.swing.JTextField();
         txt2 = new javax.swing.JLabel();
         txt3 = new javax.swing.JLabel();
         Buttonreturn = new javax.swing.JButton();
@@ -41,6 +41,7 @@ public class VehicleInside extends javax.swing.JFrame {
         labelHora = new javax.swing.JLabel();
         manualTime = new javax.swing.JTextField();
         automaticTime = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,15 +63,15 @@ public class VehicleInside extends javax.swing.JFrame {
 
         txt1.setText("Placa :");
 
-        plate.setText(" ");
-        plate.addComponentListener(new java.awt.event.ComponentAdapter() {
+        PlateField.setText(" ");
+        PlateField.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
-                plateComponentShown(evt);
+                PlateFieldComponentShown(evt);
             }
         });
-        plate.addActionListener(new java.awt.event.ActionListener() {
+        PlateField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                plateActionPerformed(evt);
+                PlateFieldActionPerformed(evt);
             }
         });
 
@@ -117,6 +118,8 @@ public class VehicleInside extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -137,9 +140,11 @@ public class VehicleInside extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(txt1)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(plate, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(PlateField, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(txt2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel1)
                             .addGap(0, 0, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
@@ -177,10 +182,12 @@ public class VehicleInside extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt1)
-                    .addComponent(plate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PlateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt2)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(labelHora)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -203,7 +210,7 @@ public class VehicleInside extends javax.swing.JFrame {
         {
             txt1.setVisible(false);
             txt2.setVisible(false);
-            plate.setVisible(false);
+            PlateField.setVisible(false);
             txt3.setVisible(true);
             Buttonin.setEnabled(false);
         }
@@ -211,7 +218,7 @@ public class VehicleInside extends javax.swing.JFrame {
             {
                 if(valor.equals("Carro")||valor.equals("Moto"))
                 {
-                    plate.setVisible(true);
+                    PlateField.setVisible(true);
                     txt1.setVisible(true);
                     txt2.setVisible(false);
                     txt3.setVisible(false);
@@ -223,23 +230,24 @@ public class VehicleInside extends javax.swing.JFrame {
                         txt1.setVisible(false);
                         txt2.setVisible(true);
                         txt3.setVisible(false);
-                        plate.setVisible(false);
+                        PlateField.setVisible(false);
                         Buttonin.setEnabled(true);
                     }
                 
             }
     }//GEN-LAST:event_vetypeActionPerformed
 
-    private void plateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_plateActionPerformed
+    private void PlateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlateFieldActionPerformed
          // TODO add your handling code here:
-    }//GEN-LAST:event_plateActionPerformed
+    }//GEN-LAST:event_PlateFieldActionPerformed
 
-    private void plateComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_plateComponentShown
+    private void PlateFieldComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_PlateFieldComponentShown
         // TODO add your handling code here:
-    }//GEN-LAST:event_plateComponentShown
+    }//GEN-LAST:event_PlateFieldComponentShown
 
     private void ButtoninActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtoninActionPerformed
-        // TODO add your handling code here:
+        String NameVehicle=PlateField.getText();
+        
     }//GEN-LAST:event_ButtoninActionPerformed
 
     private void ButtonreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonreturnActionPerformed
@@ -309,11 +317,12 @@ public class VehicleInside extends javax.swing.JFrame {
     private javax.swing.JRadioButton ButtonTimeAutomatic;
     public javax.swing.JButton Buttonin;
     private javax.swing.JButton Buttonreturn;
+    public javax.swing.JTextField PlateField;
     private javax.swing.JTextField automaticTime;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel labelHora;
     private javax.swing.JTextField manualTime;
-    public javax.swing.JTextField plate;
     private javax.swing.ButtonGroup selectTime;
     public javax.swing.JLabel txt1;
     public javax.swing.JLabel txt2;

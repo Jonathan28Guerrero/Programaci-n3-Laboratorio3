@@ -12,5 +12,9 @@ public class Vehicle {
         this.VehiclePlate=VehiclePlate;
         this.CheckTime=CheckTime;
     }
+
+    Vehicle() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

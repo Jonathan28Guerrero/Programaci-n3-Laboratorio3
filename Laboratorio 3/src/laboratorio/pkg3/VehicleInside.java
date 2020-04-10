@@ -247,6 +247,8 @@ public class VehicleInside extends javax.swing.JFrame {
 
     private void ButtoninActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtoninActionPerformed
         String NameVehicle=PlateField.getText();
+        Vehicle NameVehicle2=new Vehicle();
+        
         
     }//GEN-LAST:event_ButtoninActionPerformed
 

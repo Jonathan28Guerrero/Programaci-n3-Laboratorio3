@@ -5,6 +5,10 @@
  */
 package laboratorio.pkg3;
 
+import java.time.LocalDateTime;
+import javax.swing.JOptionPane;
+import static laboratorio.pkg3.VehicleInside.Vehicles;
+import static laboratorio.pkg3.ParkingParameters.Parking1;
 /**
  *
  * @author kjuan
@@ -28,56 +32,18 @@ public class VehicleOut extends javax.swing.JFrame {
     private void initComponents() {
 
         departureTime = new javax.swing.ButtonGroup();
-        defaultTime = new javax.swing.JRadioButton();
-        customTime = new javax.swing.JRadioButton();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        PlateLabel = new javax.swing.JTextField();
         returnButton = new javax.swing.JButton();
+        ExitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        departureTime.add(defaultTime);
-        defaultTime.setText("Por defecto");
-        defaultTime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                defaultTimeActionPerformed(evt);
-            }
-        });
-
-        departureTime.add(customTime);
-        customTime.setText("Personalizada");
-        customTime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                customTimeActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Hora de salida : ");
-
-        jTextField1.setEditable(false);
-        jTextField1.setText(" ");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
-        jTextField2.setText(" ");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-
         jLabel2.setText("Ingrese placa o numero :");
 
-        jTextField3.setText(" ");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        PlateLabel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                PlateLabelActionPerformed(evt);
             }
         });
 
@@ -88,30 +54,29 @@ public class VehicleOut extends javax.swing.JFrame {
             }
         });
 
+        ExitButton.setText("Confirmar salida");
+        ExitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(defaultTime)
-                                .addComponent(customTime))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(14, 14, 14)))
-                        .addGap(65, 65, 65)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField2)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                                .addComponent(jTextField3)))))
+                .addComponent(jLabel2)
+                .addGap(79, 79, 79)
+                .addComponent(PlateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(49, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ExitButton)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,50 +84,53 @@ public class VehicleOut extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                    .addComponent(PlateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(defaultTime)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(customTime)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(returnButton)
+                    .addComponent(returnButton)
+                    .addComponent(ExitButton))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void defaultTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defaultTimeActionPerformed
+    private void PlateLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlateLabelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_defaultTimeActionPerformed
-
-    private void customTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customTimeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_customTimeActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_PlateLabelActionPerformed
 
     private void returnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnButtonActionPerformed
     ParkingInterface returnEnd = new ParkingInterface();
     returnEnd.setVisible(true);
     this.setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_returnButtonActionPerformed
+
+    private void ExitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitButtonActionPerformed
+    String Plate=PlateLabel.getText();
+    if(Plate.length()==0){
+        JOptionPane.showMessageDialog(null, "Rellene todas las casillas");
+        }
+    else{
+        int Value=0;
+        switch (Vehicles.GetType(Plate)) {
+            case "Carro":
+                Value=Parking1.CarPrice;
+                break;
+            case "Moto":
+                Value=Parking1.MotorcyclePrice;
+                break;
+            case "Bicicleta":
+                Value=Parking1.BikePrice;
+                break;
+            default:
+                break;
+        }
+        Vehicles.VehicleOut(Plate, LocalDateTime.now(), Value);
+        ParkingInterface openParking = new ParkingInterface();
+        openParking.setVisible(true);
+        this.setVisible(false);
+    }
+    }//GEN-LAST:event_ExitButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,14 +168,10 @@ public class VehicleOut extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton customTime;
-    private javax.swing.JRadioButton defaultTime;
+    private javax.swing.JButton ExitButton;
+    private javax.swing.JTextField PlateLabel;
     private javax.swing.ButtonGroup departureTime;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JButton returnButton;
     // End of variables declaration//GEN-END:variables
 }

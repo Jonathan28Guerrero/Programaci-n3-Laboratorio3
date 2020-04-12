@@ -139,9 +139,8 @@ public class ParkingInterface extends javax.swing.JFrame {
     enterVehicleInterface.setVisible(true);
     enterVehicleInterface.txt1.setVisible(false);
     enterVehicleInterface.txt2.setVisible(false);
-    enterVehicleInterface.txt3.setVisible(false);
     enterVehicleInterface.PlateField.setVisible(false);
-    enterVehicleInterface.Buttonin.setEnabled(false);
+    enterVehicleInterface.ButtonIn.setEnabled(false);
     this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
     

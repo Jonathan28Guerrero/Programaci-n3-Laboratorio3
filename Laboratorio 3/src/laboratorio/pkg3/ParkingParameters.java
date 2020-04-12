@@ -5,7 +5,6 @@
  */
 package laboratorio.pkg3;
 
-import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,6 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class ParkingParameters extends javax.swing.JFrame {
     int c=0, p=0;
+    static Parking Parking1;
     /**
      * Creates new form ParkingParameters
      */
@@ -239,7 +239,8 @@ public class ParkingParameters extends javax.swing.JFrame {
     private void ButtonaceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonaceptActionPerformed
     int CVector[]=new int[3];
     int PVector[]=new int[3];
-    boolean Check1=false, Check2=false;
+    boolean Check1=false;
+    boolean Check2=false;
     switch(c){
         case 1:
             CVector[0]=12;
@@ -269,9 +270,9 @@ public class ParkingParameters extends javax.swing.JFrame {
             Check2=true;
             break;
         case 2:
-                        if((CarPrice.getText().equals(""))||(MotorcyclePrice.getText().equals(""))||(BikePrice.getText().equals(""))){
-                Check1=false;
-                break;
+            if((CarPrice.getText().equals(""))||(MotorcyclePrice.getText().equals(""))||(BikePrice.getText().equals(""))){
+            Check2=false;
+            break;
             }
             PVector[0]=Integer.parseInt(CarPrice.getText());
             PVector[1]=Integer.parseInt(MotorcyclePrice.getText());
@@ -282,11 +283,10 @@ public class ParkingParameters extends javax.swing.JFrame {
             Check2=false;
             break;
     }
-    if((Check1==true) && (Check2=true)){
+    if((Check1==true) && (Check2==true)){
         ParkingInterface openParking = new ParkingInterface();
         openParking.setVisible(true);
         this.setVisible(false);
-        Parking Parking1;
         Parking1 = new Parking(CVector[0],CVector[1],CVector[2],PVector[0],PVector[1],PVector[2]);
     }
     else

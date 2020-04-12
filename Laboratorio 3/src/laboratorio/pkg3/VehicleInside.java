@@ -5,17 +5,22 @@
  */
 package laboratorio.pkg3;
 
+import java.time.LocalDateTime;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
  */
 public class VehicleInside extends javax.swing.JFrame {
-
+    int n=0;
+    static Vehicle Vehicles = new Vehicle();
     /**
      * Creates new form ParkingParameters
      */
     public VehicleInside() {
         initComponents();
+        ButtonIn.setEnabled(false);
     }
 
     /**
@@ -29,41 +34,34 @@ public class VehicleInside extends javax.swing.JFrame {
 
         selectTime = new javax.swing.ButtonGroup();
         jLabel3 = new javax.swing.JLabel();
-        vetype = new javax.swing.JComboBox<>();
-        Buttonin = new javax.swing.JButton();
+        Type = new javax.swing.JComboBox<>();
+        ButtonIn = new javax.swing.JButton();
         txt1 = new javax.swing.JLabel();
         PlateField = new javax.swing.JTextField();
         txt2 = new javax.swing.JLabel();
-        txt3 = new javax.swing.JLabel();
         Buttonreturn = new javax.swing.JButton();
-        ButtonTimeAutomatic = new javax.swing.JRadioButton();
-        ButtonManualTime = new javax.swing.JRadioButton();
-        labelHora = new javax.swing.JLabel();
-        manualTime = new javax.swing.JTextField();
-        automaticTime = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        LabelBike = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel3.setText("Tipo de vehiculo");
 
-        vetype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "Carro", "Moto", "Cicla" }));
-        vetype.addActionListener(new java.awt.event.ActionListener() {
+        Type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Carro", "Moto", "Bicicleta" }));
+        Type.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vetypeActionPerformed(evt);
+                TypeActionPerformed(evt);
             }
         });
 
-        Buttonin.setText("ENTRAR");
-        Buttonin.addActionListener(new java.awt.event.ActionListener() {
+        ButtonIn.setText("ENTRAR");
+        ButtonIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtoninActionPerformed(evt);
+                ButtonInActionPerformed(evt);
             }
         });
 
         txt1.setText("Placa :");
 
-        PlateField.setText(" ");
         PlateField.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 PlateFieldComponentShown(evt);
@@ -75,9 +73,7 @@ public class VehicleInside extends javax.swing.JFrame {
             }
         });
 
-        txt2.setText("cicla n° :");
-
-        txt3.setText("Cual es el tipo de vehiculo");
+        txt2.setText("Bicicleta n° :");
 
         Buttonreturn.setText("Volver");
         Buttonreturn.addActionListener(new java.awt.event.ActionListener() {
@@ -86,133 +82,71 @@ public class VehicleInside extends javax.swing.JFrame {
             }
         });
 
-        selectTime.add(ButtonTimeAutomatic);
-        ButtonTimeAutomatic.setText("Automatico");
-        ButtonTimeAutomatic.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ButtonTimeAutomaticMouseClicked(evt);
-            }
-        });
-        ButtonTimeAutomatic.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonTimeAutomaticActionPerformed(evt);
-            }
-        });
-
-        selectTime.add(ButtonManualTime);
-        ButtonManualTime.setText("Manual");
-
-        labelHora.setText("Hora :");
-
-        manualTime.setText(" ");
-        manualTime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                manualTimeActionPerformed(evt);
-            }
-        });
-
-        automaticTime.setText(" ");
-        automaticTime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                automaticTimeActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("jLabel1");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Buttonreturn)
+                    .addComponent(jLabel3))
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(txt3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Buttonreturn)
-                            .addComponent(jLabel3))))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(txt1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(PlateField, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(txt2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jLabel1)
-                            .addGap(0, 0, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
+                        .addGap(62, 62, 62)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Buttonin)
-                            .addComponent(vetype, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(53, 53, 53))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ButtonIn)
+                            .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(labelHora))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ButtonTimeAutomatic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(automaticTime))
-                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txt2)
+                            .addComponent(txt1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ButtonManualTime)
-                            .addComponent(manualTime, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(PlateField, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LabelBike, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addGap(53, 53, 53))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Buttonin)
+                    .addComponent(ButtonIn)
                     .addComponent(Buttonreturn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(vetype, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt1)
-                    .addComponent(PlateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt3))
+                    .addComponent(PlateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txt2)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(labelHora)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonTimeAutomatic)
-                    .addComponent(ButtonManualTime))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(manualTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(automaticTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(41, Short.MAX_VALUE))
+                    .addComponent(LabelBike, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void vetypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vetypeActionPerformed
-        String valor = (String)vetype.getSelectedItem(); //coloca el numero a unavariable
-            if (valor.equals(" "))
+    private void TypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TypeActionPerformed
+        String valor; //coloca el numero a unavariable
+        valor = (String)Type.getSelectedItem();
+            if (valor.equals("-"))
         {
             txt1.setVisible(false);
             txt2.setVisible(false);
+            LabelBike.setVisible(false);
             PlateField.setVisible(false);
-            txt3.setVisible(true);
-            Buttonin.setEnabled(false);
+            ButtonIn.setEnabled(false);
         }
             else 
             {
@@ -221,21 +155,23 @@ public class VehicleInside extends javax.swing.JFrame {
                     PlateField.setVisible(true);
                     txt1.setVisible(true);
                     txt2.setVisible(false);
-                    txt3.setVisible(false);
-                    Buttonin.setEnabled(true);
+                    LabelBike.setVisible(false);
+                    ButtonIn.setEnabled(true);
                 }
                 else
-                    if(valor.equals("Cicla"))
+                    if(valor.equals("Bicicleta"))
                     {
                         txt1.setVisible(false);
                         txt2.setVisible(true);
-                        txt3.setVisible(false);
+                        LabelBike.setVisible(true);
                         PlateField.setVisible(false);
-                        Buttonin.setEnabled(true);
+                        ButtonIn.setEnabled(true);
+                        n=n+1;
+                        LabelBike.setText("" + n);
                     }
                 
             }
-    }//GEN-LAST:event_vetypeActionPerformed
+    }//GEN-LAST:event_TypeActionPerformed
 
     private void PlateFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlateFieldActionPerformed
          // TODO add your handling code here:
@@ -245,36 +181,29 @@ public class VehicleInside extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PlateFieldComponentShown
 
-    private void ButtoninActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtoninActionPerformed
-        String NameVehicle=PlateField.getText();
-        Vehicle NameVehicle2=new Vehicle();
+    private void ButtonInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonInActionPerformed
+        if((PlateField.getText().length()==0)&&(Type.getSelectedItem().equals("Moto")||Type.getSelectedItem().equals("Carro"))){
+            JOptionPane.showMessageDialog(null, "Rellene todas las casillas");
+        }
+        else{
+            String PlateOrNum;
+            if (Type.getSelectedItem().equals("Bicicleta"))
+                PlateOrNum=LabelBike.getText();
+            else
+                PlateOrNum=PlateField.getText();
+            Vehicles.AddVehicle((String)Type.getSelectedItem(), PlateOrNum, LocalDateTime.now());
+            ParkingInterface Return = new ParkingInterface();
+            Return.setVisible(true);
+            this.setVisible(false);
+        }
         
-        
-    }//GEN-LAST:event_ButtoninActionPerformed
+    }//GEN-LAST:event_ButtonInActionPerformed
 
     private void ButtonreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonreturnActionPerformed
         ParkingInterface Return = new ParkingInterface();
         Return.setVisible(true);
         this.setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_ButtonreturnActionPerformed
-
-    private void ButtonTimeAutomaticActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonTimeAutomaticActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ButtonTimeAutomaticActionPerformed
-
-    private void automaticTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_automaticTimeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_automaticTimeActionPerformed
-
-    private void manualTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manualTimeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_manualTimeActionPerformed
-
-    private void ButtonTimeAutomaticMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonTimeAutomaticMouseClicked
-        VehicleInside obj1 = new VehicleInside();
-        obj1.ButtonManualTime.setEnabled(false); 
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ButtonTimeAutomaticMouseClicked
 
     /**
      * @param args the command line arguments
@@ -315,20 +244,14 @@ public class VehicleInside extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton ButtonManualTime;
-    private javax.swing.JRadioButton ButtonTimeAutomatic;
-    public javax.swing.JButton Buttonin;
+    public javax.swing.JButton ButtonIn;
     private javax.swing.JButton Buttonreturn;
+    private javax.swing.JLabel LabelBike;
     public javax.swing.JTextField PlateField;
-    private javax.swing.JTextField automaticTime;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> Type;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel labelHora;
-    private javax.swing.JTextField manualTime;
     private javax.swing.ButtonGroup selectTime;
     public javax.swing.JLabel txt1;
     public javax.swing.JLabel txt2;
-    public javax.swing.JLabel txt3;
-    private javax.swing.JComboBox<String> vetype;
     // End of variables declaration//GEN-END:variables
 }

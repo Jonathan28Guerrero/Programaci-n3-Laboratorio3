@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class ParkingParameters extends javax.swing.JFrame {
     int c=0, p=0;
+    static int n=1;
     static Parking Parking1;
     /**
      * Creates new form ParkingParameters
@@ -25,6 +26,8 @@ public class ParkingParameters extends javax.swing.JFrame {
         CarPrice.setEnabled(false);
         MotorcyclePrice.setEnabled(false);
         BikePrice.setEnabled(false);
+        NigthPrice.setEnabled(false);
+        TenHours.setEnabled(false);
     }
 
     /**
@@ -57,6 +60,10 @@ public class ParkingParameters extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        NigthPrice = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        TenHours = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -126,6 +133,16 @@ public class ParkingParameters extends javax.swing.JFrame {
 
         jLabel8.setText("Bicicleta");
 
+        NigthPrice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NigthPriceActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Recargo nocturno");
+
+        jLabel10.setText("+10 horas");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -166,22 +183,28 @@ public class ParkingParameters extends javax.swing.JFrame {
                                     .addComponent(jLabel3)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(29, 29, 29)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(customPrices)
-                                            .addComponent(defaultPrices))
-                                        .addGap(32, 32, 32)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGap(11, 11, 11)
-                                                .addComponent(jLabel6)))
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(customPrices)
+                                                    .addComponent(defaultPrices))
+                                                .addGap(32, 32, 32)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(11, 11, 11)
+                                                        .addComponent(jLabel6))))
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel10))
                                         .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(CarPrice, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
-                                            .addComponent(MotorcyclePrice)
-                                            .addComponent(BikePrice))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(NigthPrice)
+                                            .addComponent(CarPrice, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                                            .addComponent(MotorcyclePrice, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(BikePrice, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(TenHours))))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
@@ -228,9 +251,17 @@ public class ParkingParameters extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BikePrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8))))
-                .addGap(19, 19, 19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NigthPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TenHours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addComponent(Buttonacept)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -238,7 +269,7 @@ public class ParkingParameters extends javax.swing.JFrame {
 
     private void ButtonaceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonaceptActionPerformed
     int CVector[]=new int[3];
-    int PVector[]=new int[3];
+    int PVector[]=new int[5];
     boolean Check1=false;
     boolean Check2=false;
     switch(c){
@@ -267,16 +298,21 @@ public class ParkingParameters extends javax.swing.JFrame {
             PVector[0]=75;
             PVector[1]=20;
             PVector[2]=10;
+            PVector[3]=5;
+            PVector[4]=13000;
             Check2=true;
             break;
         case 2:
-            if((CarPrice.getText().equals(""))||(MotorcyclePrice.getText().equals(""))||(BikePrice.getText().equals(""))){
+            if((CarPrice.getText().equals(""))||(MotorcyclePrice.getText().equals(""))||
+                    (BikePrice.getText().equals(""))||(NigthPrice.getText().equals(""))||(TenHours.getText().equals(""))){
             Check2=false;
             break;
             }
             PVector[0]=Integer.parseInt(CarPrice.getText());
             PVector[1]=Integer.parseInt(MotorcyclePrice.getText());
             PVector[2]=Integer.parseInt(BikePrice.getText());
+            PVector[3]=Integer.parseInt(NigthPrice.getText());
+            PVector[4]=Integer.parseInt(TenHours.getText());
             Check2=true;
             break;
         default:
@@ -287,7 +323,7 @@ public class ParkingParameters extends javax.swing.JFrame {
         ParkingInterface openParking = new ParkingInterface();
         openParking.setVisible(true);
         this.setVisible(false);
-        Parking1 = new Parking(CVector[0],CVector[1],CVector[2],PVector[0],PVector[1],PVector[2]);
+        Parking1 = new Parking(CVector[0],CVector[1],CVector[2],PVector[0],PVector[1],PVector[2],PVector[3],PVector[4]);
     }
     else
         JOptionPane.showMessageDialog(null, "Escoja una opción y/o rellene todas las casillas");
@@ -316,6 +352,8 @@ public class ParkingParameters extends javax.swing.JFrame {
         CarPrice.setEnabled(false);
         MotorcyclePrice.setEnabled(false);
         BikePrice.setEnabled(false);
+        NigthPrice.setEnabled(false);
+        TenHours.setEnabled(false);
     }//GEN-LAST:event_defaultPricesMouseClicked
 
     private void customPricesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customPricesMouseClicked
@@ -323,11 +361,17 @@ public class ParkingParameters extends javax.swing.JFrame {
         CarPrice.setEnabled(true);
         MotorcyclePrice.setEnabled(true);
         BikePrice.setEnabled(true);
+        NigthPrice.setEnabled(true);
+        TenHours.setEnabled(true);
     }//GEN-LAST:event_customPricesMouseClicked
 
     private void CarCapacityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CarCapacityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CarCapacityActionPerformed
+
+    private void NigthPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NigthPriceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NigthPriceActionPerformed
 
     /**
      * @param args the command line arguments
@@ -372,12 +416,15 @@ public class ParkingParameters extends javax.swing.JFrame {
     private javax.swing.JTextField CarPrice;
     private javax.swing.JTextField MotorcycleCapacity;
     private javax.swing.JTextField MotorcyclePrice;
+    private javax.swing.JTextField NigthPrice;
+    private javax.swing.JTextField TenHours;
     private javax.swing.ButtonGroup capacity;
     private javax.swing.JRadioButton costomCapacity;
     private javax.swing.JRadioButton customPrices;
     private javax.swing.JRadioButton defaultCapacity;
     private javax.swing.JRadioButton defaultPrices;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -385,6 +432,7 @@ public class ParkingParameters extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.ButtonGroup prices;
     // End of variables declaration//GEN-END:variables
 

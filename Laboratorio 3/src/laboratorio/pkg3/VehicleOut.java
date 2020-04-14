@@ -125,7 +125,7 @@ public class VehicleOut extends javax.swing.JFrame {
             default:
                 break;
         }
-        Vehicles.VehicleOut(Plate, LocalDateTime.now(), Value);
+        Vehicles.VehicleOut(Plate, LocalDateTime.now(), Value, Parking1.NigthPrice, Parking1.TenHours);
         ParkingInterface openParking = new ParkingInterface();
         openParking.setVisible(true);
         this.setVisible(false);

@@ -7,13 +7,13 @@ package laboratorio.pkg3;
 
 import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
+import static laboratorio.pkg3.ParkingParameters.n;
 
 /**
  *
  * @author User
  */
 public class VehicleInside extends javax.swing.JFrame {
-    int n=0;
     static Vehicle Vehicles = new Vehicle();
     /**
      * Creates new form ParkingParameters
@@ -86,18 +86,14 @@ public class VehicleInside extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Buttonreturn)
-                    .addComponent(jLabel3))
+                .addComponent(jLabel3)
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(62, 62, 62)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(ButtonIn)
-                            .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txt2)
@@ -111,15 +107,17 @@ public class VehicleInside extends javax.swing.JFrame {
                                 .addComponent(LabelBike, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(53, 53, 53))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(Buttonreturn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ButtonIn)
+                .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonIn)
-                    .addComponent(Buttonreturn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -131,7 +129,11 @@ public class VehicleInside extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txt2)
                     .addComponent(LabelBike, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ButtonIn)
+                    .addComponent(Buttonreturn))
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -166,7 +168,6 @@ public class VehicleInside extends javax.swing.JFrame {
                         LabelBike.setVisible(true);
                         PlateField.setVisible(false);
                         ButtonIn.setEnabled(true);
-                        n=n+1;
                         LabelBike.setText("" + n);
                     }
                 
@@ -187,8 +188,10 @@ public class VehicleInside extends javax.swing.JFrame {
         }
         else{
             String PlateOrNum;
-            if (Type.getSelectedItem().equals("Bicicleta"))
+            if (Type.getSelectedItem().equals("Bicicleta")){
                 PlateOrNum=LabelBike.getText();
+                n=n+1;
+            }
             else
                 PlateOrNum=PlateField.getText();
             Vehicles.AddVehicle((String)Type.getSelectedItem(), PlateOrNum, LocalDateTime.now());

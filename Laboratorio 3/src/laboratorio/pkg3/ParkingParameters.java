@@ -12,8 +12,8 @@ import javax.swing.JOptionPane;
  * @author kjuan
  */
 public class ParkingParameters extends javax.swing.JFrame {
-    int c=0, p=0;
-    static int n=1;
+    int c=0, p=0;  //automatico o defecto
+    static int n=1; // se importa para inicializar en 0 , reasigna 1 
     static Parking Parking1;
     /**
      * Creates new form ParkingParameters
@@ -268,9 +268,9 @@ public class ParkingParameters extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonaceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonaceptActionPerformed
-    int CVector[]=new int[3];
-    int PVector[]=new int[5];
-    boolean Check1=false;
+    int CVector[]=new int[3]; //carro moto cicla
+    int PVector[]=new int[5]; // precios
+    boolean Check1=false; // si no esta completo manda ventana emergente
     boolean Check2=false;
     switch(c){
         case 1:
@@ -281,7 +281,7 @@ public class ParkingParameters extends javax.swing.JFrame {
             break;
         case 2:
             if((CarCapacity.getText().equals(""))||(MotorcycleCapacity.getText().equals(""))||(BikeCapacity.getText().equals(""))){
-                Check1=false;
+                Check1=false; // ventana emergente por check1 
                 break;
             }
             CVector[0]=Integer.parseInt(CarCapacity.getText());

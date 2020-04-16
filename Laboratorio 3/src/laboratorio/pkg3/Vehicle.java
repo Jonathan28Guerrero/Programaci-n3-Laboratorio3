@@ -1,25 +1,32 @@
 package laboratorio.pkg3;
+import java.awt.Window;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
+
 public class Vehicle {
+    
     public List VehiclesType= new ArrayList();
     public List VehiclesPlate= new ArrayList();
     public List CheckTimes= new ArrayList();
     public List DepartureTimes= new ArrayList();
     public List TotalTimes= new ArrayList();
     public List ParkingPrices= new ArrayList();
+
+
     public void AddVehicle(String Type, String VehiclePlate, LocalDateTime CheckTime){
+       
         VehiclesType.add(Type);
-        VehiclePlate=VehiclePlate.toUpperCase();
+        VehiclePlate = VehiclePlate.toUpperCase();
         VehiclesPlate.add(VehiclePlate);
         CheckTimes.add(CheckTime);
         DepartureTimes.add("No hay registro");
         TotalTimes.add("No hay registro");
         ParkingPrices.add(0);
+        
     }
     public void VehicleOut(String Plate, LocalDateTime DepartureTime, int Value, int NigthPrice, int TenHours){
         try{
@@ -33,7 +40,7 @@ public class Vehicle {
             LocalDateTime LimitTime= LocalDateTime.of(Time1.getYear(),Time1.getMonth(),Time1.getDayOfMonth(),22,00);
             if(Time2.isAfter(LimitTime)){
                 JOptionPane.showMessageDialog(null, "Parqueadero cerrado");
-            
+                
             }
             if(Time2.isAfter(NigthTime) && Time1.isBefore(NigthTime))
                 NigthPriceVehicle = Duration.between(NigthTime,Time2).toMinutes()* NigthPrice;
@@ -70,4 +77,16 @@ public class Vehicle {
                 "\nTiempo total: " + TotalTimes.get(b) +
                 "\nValor del parqueo: $" + ParkingPrices.get(b)), "Recibo de pago",1);
     }
+    
+    public String[][] Table(){
+        String matriz[][] = new String[VehiclesType.size()][5];
+        for (int i = 0 ; i <VehiclesType.size() ; i++){
+            matriz[i][0]=(String) VehiclesType.get(i); 
+            matriz[i][1]=(String) VehiclesPlate.get(i);
+            matriz[i][2]=(String) CheckTimes.get(i);
+            matriz[i][3]=(String) ParkingPrices.get(i);
+        }
+        return matriz;
+    } 
+    
 }

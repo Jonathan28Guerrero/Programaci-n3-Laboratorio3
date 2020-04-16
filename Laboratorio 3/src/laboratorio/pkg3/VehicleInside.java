@@ -18,10 +18,13 @@ public class VehicleInside extends javax.swing.JFrame {
     /**
      * Creates new form ParkingParameters
      */
+        
     public VehicleInside() {
+        
         initComponents();
         ButtonIn.setEnabled(false);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -183,6 +186,7 @@ public class VehicleInside extends javax.swing.JFrame {
     }//GEN-LAST:event_PlateFieldComponentShown
 
     private void ButtonInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonInActionPerformed
+
         if((PlateField.getText().length()==0)&&(Type.getSelectedItem().equals("Moto")||Type.getSelectedItem().equals("Carro"))){
             JOptionPane.showMessageDialog(null, "Rellene todas las casillas");
         }
@@ -195,6 +199,7 @@ public class VehicleInside extends javax.swing.JFrame {
             else
                 PlateOrNum=PlateField.getText();
             Vehicles.AddVehicle((String)Type.getSelectedItem(), PlateOrNum, LocalDateTime.now());
+            //obj.Nose((String)Type.getSelectedItem(), PlateOrNum, LocalDateTime.now());
             ParkingInterface Return = new ParkingInterface();
             Return.setVisible(true);
             this.setVisible(false);

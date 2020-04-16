@@ -4,13 +4,16 @@
  * and open the template in the editor.
  */
 package laboratorio.pkg3;
+import java.util.ArrayList;
+import static laboratorio.pkg3.ParkingParameters.Parking1;
+
 
 /**
  *
  * @author User
  */
 public class ParkingInterface extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Prueba
      */

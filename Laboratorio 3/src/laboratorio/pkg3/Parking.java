@@ -25,5 +25,4 @@ public class Parking {
         this.NigthPrice=NigthPrice;
         this.TenHours=TenHours;
     }   
-    
 }

@@ -8,6 +8,7 @@ package laboratorio.pkg3;
 import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
 import static laboratorio.pkg3.ParkingParameters.n;
+import static laboratorio.pkg3.ParkingParameters.Parking1;
 
 /**
  *
@@ -46,8 +47,14 @@ public class VehicleInside extends javax.swing.JFrame {
         LabelBike = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(315, 240));
+        setMinimumSize(new java.awt.Dimension(315, 240));
+        setPreferredSize(new java.awt.Dimension(315, 240));
+        getContentPane().setLayout(null);
 
-        jLabel3.setText("Tipo de vehiculo");
+        jLabel3.setText("Tipo de vehiculo:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(20, 20, 100, 20);
 
         Type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-", "Carro", "Moto", "Bicicleta" }));
         Type.addActionListener(new java.awt.event.ActionListener() {
@@ -55,6 +62,8 @@ public class VehicleInside extends javax.swing.JFrame {
                 TypeActionPerformed(evt);
             }
         });
+        getContentPane().add(Type);
+        Type.setBounds(150, 20, 106, 25);
 
         ButtonIn.setText("ENTRAR");
         ButtonIn.addActionListener(new java.awt.event.ActionListener() {
@@ -62,8 +71,12 @@ public class VehicleInside extends javax.swing.JFrame {
                 ButtonInActionPerformed(evt);
             }
         });
+        getContentPane().add(ButtonIn);
+        ButtonIn.setBounds(180, 150, 80, 25);
 
         txt1.setText("Placa :");
+        getContentPane().add(txt1);
+        txt1.setBounds(80, 60, 50, 20);
 
         PlateField.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -75,8 +88,12 @@ public class VehicleInside extends javax.swing.JFrame {
                 PlateFieldActionPerformed(evt);
             }
         });
+        getContentPane().add(PlateField);
+        PlateField.setBounds(150, 58, 106, 25);
 
         txt2.setText("Bicicleta n° :");
+        getContentPane().add(txt2);
+        txt2.setBounds(65, 100, 70, 20);
 
         Buttonreturn.setText("Volver");
         Buttonreturn.addActionListener(new java.awt.event.ActionListener() {
@@ -84,60 +101,10 @@ public class VehicleInside extends javax.swing.JFrame {
                 ButtonreturnActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jLabel3)
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txt2)
-                            .addComponent(txt1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(PlateField, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(LabelBike, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(53, 53, 53))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(Buttonreturn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ButtonIn)
-                .addGap(21, 21, 21))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt1)
-                    .addComponent(PlateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt2)
-                    .addComponent(LabelBike, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonIn)
-                    .addComponent(Buttonreturn))
-                .addGap(22, 22, 22))
-        );
+        getContentPane().add(Buttonreturn);
+        Buttonreturn.setBounds(30, 150, 80, 25);
+        getContentPane().add(LabelBike);
+        LabelBike.setBounds(150, 100, 106, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -191,13 +158,20 @@ public class VehicleInside extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Rellene todas las casillas");
         }
         else{
-            String PlateOrNum;
+            String PlateOrNum = null;
             if (Type.getSelectedItem().equals("Bicicleta")){
                 PlateOrNum=LabelBike.getText();
                 n=n+1;
+                Parking1.BikeCapacity=Parking1.BikeCapacity-1;
             }
-            else
+            else if (Type.getSelectedItem().equals("Moto")){
+                Parking1.MotorcycleCapacity=Parking1.MotorcycleCapacity-1;
                 PlateOrNum=PlateField.getText();
+            }
+            else if (Type.getSelectedItem().equals("Carro")){
+                Parking1.CarCapacity=Parking1.CarCapacity-1;
+                PlateOrNum=PlateField.getText();
+            }
             Vehicles.AddVehicle((String)Type.getSelectedItem(), PlateOrNum, LocalDateTime.now());
             //obj.Nose((String)Type.getSelectedItem(), PlateOrNum, LocalDateTime.now());
             ParkingInterface Return = new ParkingInterface();

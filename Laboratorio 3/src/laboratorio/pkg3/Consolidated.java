@@ -9,6 +9,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import static laboratorio.pkg3.ParkingParameters.Parking1;
 import static laboratorio.pkg3.VehicleInside.Vehicles;
@@ -38,16 +39,21 @@ public class Consolidated extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         UpDate = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        Total = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         TableCo = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(498, 470));
+        setMaximumSize(new java.awt.Dimension(510, 540));
+        setMinimumSize(new java.awt.Dimension(510, 540));
+        setPreferredSize(new java.awt.Dimension(510, 540));
+        getContentPane().setLayout(null);
 
         jLabel1.setText("Tabla de consolidado :");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(20, 20, 150, 20);
 
         UpDate.setText("Actualizar");
         UpDate.addActionListener(new java.awt.event.ActionListener() {
@@ -55,9 +61,13 @@ public class Consolidated extends javax.swing.JFrame {
                 UpDateActionPerformed(evt);
             }
         });
+        getContentPane().add(UpDate);
+        UpDate.setBounds(25, 410, 100, 25);
 
-        jTextField1.setEditable(false);
-        jTextField1.setText(" ");
+        Total.setEditable(false);
+        Total.setText(" ");
+        getContentPane().add(Total);
+        Total.setBounds(150, 410, 100, 25);
 
         jButton2.setText("Volver al parqueadero");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +75,8 @@ public class Consolidated extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(310, 410, 150, 25);
 
         jButton3.setText("Terminar dia");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -72,9 +84,107 @@ public class Consolidated extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(310, 450, 150, 25);
 
         TableCo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -95,51 +205,20 @@ public class Consolidated extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(TableCo);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(UpDate)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(54, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UpDate)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(40, 60, 422, 324);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    int A = JOptionPane.showConfirmDialog(null, "¿Seguro desea terminar el día?");
+    if(A==0){
     MainInterface tableEnd = new MainInterface();
     tableEnd.setVisible(true);
-    this.setVisible(false);// TODO add your handling code here:
+    this.setVisible(false);
+    }
+// TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -154,14 +233,8 @@ public class Consolidated extends javax.swing.JFrame {
     }//GEN-LAST:event_TableCoAncestorAdded
 
     private void UpDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpDateActionPerformed
-     /*JONATHAN.setModel(new javax.swing.table.DefaultTableModel(
-            Parking1.Table(),
-            new String [] {
-                "Vehiculo", "Placa", "Hora de entrada", "Hora de salida", "Precio"
-            }
-        ));*/
-        String matriz[][]=Vehicles.Table();
-    for(int i = 0 ; i <Vehicles.CheckTimes.size() ; i++){
+
+    for(int i = 0 ; i <Vehicles.VehiclesType.size() ; i++){
         
             TableCo.setValueAt(Vehicles.VehiclesType.get(i), i, 0);
             TableCo.setValueAt(Vehicles.VehiclesPlate.get(i), i, 1);
@@ -169,8 +242,8 @@ public class Consolidated extends javax.swing.JFrame {
             TableCo.setValueAt(Vehicles.DepartureTimes.get(i), i,3);
             TableCo.setValueAt(Vehicles.TotalTimes.get(i), i, 4);
             TableCo.setValueAt(Vehicles.ParkingPrices.get(i), i,5);
-        
     }
+    Total.setText("" + Vehicles.Total);
     }//GEN-LAST:event_UpDateActionPerformed
 
     /**
@@ -210,11 +283,11 @@ public class Consolidated extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JTable TableCo;
+    private javax.swing.JTextField Total;
     private javax.swing.JButton UpDate;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

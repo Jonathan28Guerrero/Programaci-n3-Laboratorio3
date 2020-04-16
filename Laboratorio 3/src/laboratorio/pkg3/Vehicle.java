@@ -15,6 +15,7 @@ public class Vehicle {
     public List DepartureTimes= new ArrayList();
     public List TotalTimes= new ArrayList();
     public List ParkingPrices= new ArrayList();
+    public float Total=0;
 
 
     public void AddVehicle(String Type, String VehiclePlate, LocalDateTime CheckTime){
@@ -53,6 +54,7 @@ public class Vehicle {
             else
                 ParkingPrices.set(n, (Time*Value) + NigthPriceVehicle);
             Invoice(Plate);
+            Total = Total + (float)ParkingPrices.get(n);
         }
         finally{}
     }

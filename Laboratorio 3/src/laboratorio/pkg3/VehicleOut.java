@@ -38,14 +38,22 @@ public class VehicleOut extends javax.swing.JFrame {
         ExitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(320, 160));
+        setMinimumSize(new java.awt.Dimension(320, 160));
+        setPreferredSize(new java.awt.Dimension(320, 160));
+        getContentPane().setLayout(null);
 
         jLabel2.setText("Ingrese placa o numero :");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(20, 20, 130, 25);
 
         PlateLabel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PlateLabelActionPerformed(evt);
             }
         });
+        getContentPane().add(PlateLabel);
+        PlateLabel.setBounds(170, 20, 100, 25);
 
         returnButton.setText("Volver");
         returnButton.addActionListener(new java.awt.event.ActionListener() {
@@ -53,6 +61,8 @@ public class VehicleOut extends javax.swing.JFrame {
                 returnButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(returnButton);
+        returnButton.setBounds(25, 70, 100, 25);
 
         ExitButton.setText("Confirmar salida");
         ExitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -60,37 +70,8 @@ public class VehicleOut extends javax.swing.JFrame {
                 ExitButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel2)
-                .addGap(79, 79, 79)
-                .addComponent(PlateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(returnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ExitButton)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(PlateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(returnButton)
-                    .addComponent(ExitButton))
-                .addContainerGap())
-        );
+        getContentPane().add(ExitButton);
+        ExitButton.setBounds(145, 70, 140, 25);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -130,6 +111,19 @@ public class VehicleOut extends javax.swing.JFrame {
         openParking.setVisible(true);
         this.setVisible(false);
     }
+            switch (Vehicles.GetType(Plate)) {
+            case "Bicicleta":
+                Parking1.BikeCapacity=Parking1.BikeCapacity+1;
+                break;
+            case "Moto":
+                Parking1.MotorcycleCapacity=Parking1.MotorcycleCapacity+1;
+                break;
+            case "Carro":
+                Parking1.CarCapacity=Parking1.CarCapacity+1;
+                break;
+            default:
+                break;
+        }
     }//GEN-LAST:event_ExitButtonActionPerformed
 
     /**

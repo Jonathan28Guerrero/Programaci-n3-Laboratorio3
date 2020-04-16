@@ -32,6 +32,10 @@ public class MainInterface extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(270, 200));
+        setMinimumSize(new java.awt.Dimension(270, 200));
+        setPreferredSize(new java.awt.Dimension(270, 200));
+        getContentPane().setLayout(null);
 
         ParkingButton.setText("TEATRO");
         ParkingButton.addActionListener(new java.awt.event.ActionListener() {
@@ -39,6 +43,8 @@ public class MainInterface extends javax.swing.JFrame {
                 ParkingButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(ParkingButton);
+        ParkingButton.setBounds(80, 50, 120, 25);
 
         Button2.setText("PARQUEADERO");
         Button2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -51,36 +57,12 @@ public class MainInterface extends javax.swing.JFrame {
                 Button2ActionPerformed(evt);
             }
         });
+        getContentPane().add(Button2);
+        Button2.setBounds(80, 90, 120, 25);
 
         jLabel1.setText("Escoge una opcion: ");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Button2)
-                            .addComponent(ParkingButton))))
-                .addContainerGap(50, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(ParkingButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Button2)
-                .addContainerGap(44, Short.MAX_VALUE))
-        );
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(50, 20, 120, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

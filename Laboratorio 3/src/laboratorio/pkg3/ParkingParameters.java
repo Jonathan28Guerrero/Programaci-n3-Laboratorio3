@@ -66,8 +66,14 @@ public class ParkingParameters extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(330, 470));
+        setMinimumSize(new java.awt.Dimension(330, 470));
+        setPreferredSize(new java.awt.Dimension(330, 470));
+        getContentPane().setLayout(null);
 
         jLabel1.setText("Capacidad de parqueadero : ");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(20, 20, 200, 20);
 
         capacity.add(defaultCapacity);
         defaultCapacity.setText("Por defecto");
@@ -76,6 +82,13 @@ public class ParkingParameters extends javax.swing.JFrame {
                 defaultCapacityMouseClicked(evt);
             }
         });
+        defaultCapacity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                defaultCapacityActionPerformed(evt);
+            }
+        });
+        getContentPane().add(defaultCapacity);
+        defaultCapacity.setBounds(40, 50, 100, 25);
 
         capacity.add(costomCapacity);
         costomCapacity.setText("Personalizado");
@@ -84,8 +97,12 @@ public class ParkingParameters extends javax.swing.JFrame {
                 costomCapacityMouseClicked(evt);
             }
         });
+        getContentPane().add(costomCapacity);
+        costomCapacity.setBounds(40, 90, 100, 25);
 
         jLabel3.setText("Precios : ");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(20, 160, 200, 20);
 
         prices.add(defaultPrices);
         defaultPrices.setText("Por defecto");
@@ -99,6 +116,8 @@ public class ParkingParameters extends javax.swing.JFrame {
                 defaultPricesActionPerformed(evt);
             }
         });
+        getContentPane().add(defaultPrices);
+        defaultPrices.setBounds(40, 200, 100, 25);
 
         prices.add(customPrices);
         customPrices.setText("Personalizado");
@@ -107,6 +126,8 @@ public class ParkingParameters extends javax.swing.JFrame {
                 customPricesMouseClicked(evt);
             }
         });
+        getContentPane().add(customPrices);
+        customPrices.setBounds(40, 240, 100, 25);
 
         Buttonacept.setText("Aceptar");
         Buttonacept.addActionListener(new java.awt.event.ActionListener() {
@@ -114,155 +135,68 @@ public class ParkingParameters extends javax.swing.JFrame {
                 ButtonaceptActionPerformed(evt);
             }
         });
+        getContentPane().add(Buttonacept);
+        Buttonacept.setBounds(210, 385, 80, 25);
 
         CarCapacity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CarCapacityActionPerformed(evt);
             }
         });
+        getContentPane().add(CarCapacity);
+        CarCapacity.setBounds(230, 48, 60, 24);
+        getContentPane().add(MotorcycleCapacity);
+        MotorcycleCapacity.setBounds(230, 83, 60, 24);
+        getContentPane().add(BikeCapacity);
+        BikeCapacity.setBounds(230, 118, 60, 24);
+        getContentPane().add(CarPrice);
+        CarPrice.setBounds(230, 193, 60, 24);
+        getContentPane().add(MotorcyclePrice);
+        MotorcyclePrice.setBounds(230, 228, 60, 24);
+        getContentPane().add(BikePrice);
+        BikePrice.setBounds(230, 263, 60, 24);
 
         jLabel2.setText("Carro");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(180, 50, 50, 20);
 
         jLabel4.setText("Moto");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(180, 85, 50, 20);
 
         jLabel5.setText("Bicicleta");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(180, 120, 50, 20);
 
         jLabel6.setText("Carro");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(180, 195, 60, 20);
 
         jLabel7.setText("Moto");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(180, 230, 60, 20);
 
         jLabel8.setText("Bicicleta");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(180, 265, 60, 20);
 
         NigthPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NigthPriceActionPerformed(evt);
             }
         });
+        getContentPane().add(NigthPrice);
+        NigthPrice.setBounds(230, 298, 60, 24);
 
         jLabel9.setText("Recargo nocturno");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(130, 300, 110, 20);
+        getContentPane().add(TenHours);
+        TenHours.setBounds(230, 333, 60, 24);
 
         jLabel10.setText("+10 horas");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(defaultCapacity)
-                            .addComponent(costomCapacity))
-                        .addGap(43, 43, 43)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(jLabel2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(jLabel4))
-                            .addComponent(jLabel5))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(CarCapacity, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
-                            .addComponent(MotorcycleCapacity)
-                            .addComponent(BikeCapacity))
-                        .addContainerGap(18, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(Buttonacept))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(29, 29, 29)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(customPrices)
-                                                    .addComponent(defaultPrices))
-                                                .addGap(32, 32, 32)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGap(11, 11, 11)
-                                                        .addComponent(jLabel6))))
-                                            .addComponent(jLabel9)
-                                            .addComponent(jLabel10))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(NigthPrice)
-                                            .addComponent(CarPrice, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
-                                            .addComponent(MotorcyclePrice, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(BikePrice, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(TenHours))))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1)
-                .addGap(11, 11, 11)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(defaultCapacity)
-                        .addGap(18, 18, 18)
-                        .addComponent(costomCapacity))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CarCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(MotorcycleCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BikeCapacity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))))
-                .addGap(25, 25, 25)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(defaultPrices)
-                        .addGap(18, 18, 18)
-                        .addComponent(customPrices))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(CarPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(MotorcyclePrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BikePrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(NigthPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TenHours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addComponent(Buttonacept)
-                .addContainerGap())
-        );
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(170, 335, 60, 20);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -372,6 +306,10 @@ public class ParkingParameters extends javax.swing.JFrame {
     private void NigthPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NigthPriceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_NigthPriceActionPerformed
+
+    private void defaultCapacityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defaultCapacityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_defaultCapacityActionPerformed
 
     /**
      * @param args the command line arguments

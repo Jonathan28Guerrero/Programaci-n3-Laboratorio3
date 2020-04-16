@@ -37,11 +37,16 @@ public class ParkingInterface extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        CarsSpace = new javax.swing.JLabel();
+        MotorcyclesSpace = new javax.swing.JLabel();
+        BikesSpace = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(420, 265));
+        setMinimumSize(new java.awt.Dimension(420, 265));
+        setPreferredSize(new java.awt.Dimension(420, 265));
+        getContentPane().setLayout(null);
 
         jButton1.setText("Ingreso de vehículo");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -49,6 +54,8 @@ public class ParkingInterface extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(220, 30, 150, 25);
 
         jButton2.setText("Salida de vehículo");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -56,6 +63,8 @@ public class ParkingInterface extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(220, 70, 150, 25);
 
         consolidated.setText("Consolidado");
         consolidated.addActionListener(new java.awt.event.ActionListener() {
@@ -63,76 +72,45 @@ public class ParkingInterface extends javax.swing.JFrame {
                 consolidatedActionPerformed(evt);
             }
         });
+        getContentPane().add(consolidated);
+        consolidated.setBounds(220, 110, 150, 25);
 
         jLabel1.setText("Espacios disponibles");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(20, 20, 120, 20);
 
         jLabel2.setText("Carro:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(30, 50, 40, 20);
 
         jLabel3.setText("Moto:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(30, 80, 40, 20);
 
         jLabel4.setText("Bicicleta:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(20, 110, 55, 20);
 
-        jLabel5.setText("jLabel5");
+        CarsSpace.setText("-");
+        getContentPane().add(CarsSpace);
+        CarsSpace.setBounds(80, 50, 40, 20);
 
-        jLabel6.setText("jLabel6");
+        MotorcyclesSpace.setText("-");
+        getContentPane().add(MotorcyclesSpace);
+        MotorcyclesSpace.setBounds(80, 80, 40, 20);
 
-        jLabel7.setText("jLabel7");
+        BikesSpace.setText("-");
+        getContentPane().add(BikesSpace);
+        BikesSpace.setBounds(80, 110, 40, 20);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel6)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel5)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(consolidated, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(23, 23, 23))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel7))
-                .addGap(29, 29, 29)
-                .addComponent(consolidated)
-                .addContainerGap(106, Short.MAX_VALUE))
-        );
+        jButton3.setText("Actualizar espacios");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(30, 160, 150, 25);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -158,6 +136,12 @@ public class ParkingInterface extends javax.swing.JFrame {
     newTable.setVisible(true);
     this.setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_consolidatedActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        CarsSpace.setText(Integer.toString(Parking1.CarCapacity));
+        MotorcyclesSpace.setText(Integer.toString(Parking1.MotorcycleCapacity));
+        BikesSpace.setText(Integer.toString(Parking1.BikeCapacity)); // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,15 +180,16 @@ public class ParkingInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BikesSpace;
+    private javax.swing.JLabel CarsSpace;
+    private javax.swing.JLabel MotorcyclesSpace;
     private javax.swing.JButton consolidated;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }
